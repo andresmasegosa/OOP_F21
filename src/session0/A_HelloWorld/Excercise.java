@@ -13,11 +13,14 @@ class Excercise {
         System.out.print("Please enter the number of feets: ");
 
         // Takes an string from standard in and convert it to an integer
-        int feets = Integer.valueOf(scanner.nextLine()).intValue();
+        int feet = Integer.valueOf(scanner.nextLine()).intValue();
+
+        System.out.println(feet);
 
         //1 foot = 0.3048 meters
+        double meters = feet*0.308;
 
         // Print the conversion
-        System.out.println("");
+        System.out.println("" + feet + " feet equal " + meters + " meters.");
     }
 }

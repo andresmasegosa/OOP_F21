@@ -8,17 +8,22 @@ package session0.B_ClassesAndObjects;
 class Person {
 
     //Add the instance variables
+    String firstname;
+    String lastname;
+    int age;
 
     public static void main(String[] args) {
 
         //Create the object
-
+        Person person = new Person();
 
         //Assign the values to the instance variables
-
+        person.firstname="Anders";
+        person.lastname="Madsen";
+        person.age = 28;
 
         //Print the person's information as a string formatted as ”Anders, Madsen, 28”
-
+        System.out.println(person.firstname+", "+person.lastname+", "+person.age);
 
     }
 
