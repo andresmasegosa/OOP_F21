@@ -15,6 +15,8 @@ class Excercise {
         // Takes an string from standard in and convert it to an integer
         int feets = Integer.valueOf(scanner.nextLine()).intValue();
 
+        //1 foot = 0.3048 meters
+
         // Print the conversion
         System.out.println("");
     }
