@@ -36,7 +36,7 @@ class Vehicle {
         System.out.println(" minivan: " + minivan.fuelNeeded(250) + " gallons.");
         System.out.println(" sportscar: " + sportscar.fuelNeeded(250) + " gallons.");
 
-        System.out.println();
+        System.out.println("\n");
     }
 }
 

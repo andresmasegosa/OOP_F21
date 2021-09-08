@@ -2,6 +2,10 @@ package session0.G_excercises;
 
 import java.util.Scanner;
 
+/**
+ * Problem 6
+ * @author andresmasegosa
+ */
 class Problem6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -29,15 +33,6 @@ class Problem6 {
                 else
                     System.out.println("Not in the alphabet");
         }
-
-        String a = "a";
-
-        StringBuilder sb=new StringBuilder(a);
-
-        sb.reverse();
-
-        sb.toString().toUpperCase();
-
     }
 }
 

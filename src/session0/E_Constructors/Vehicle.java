@@ -17,7 +17,9 @@ class Vehicle {
      * Empty Constructor. Instance variables will not be set.
      */
     Vehicle() {
-
+        this.passengers=0;
+        this.fuelcap=0;
+        this.mpg=0;
     }
 
     /**
