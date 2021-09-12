@@ -1,8 +1,5 @@
 package session0.G_Exercises.Problem15;
 
-import com.sun.source.tree.NewArrayTree;
-
-import javax.sound.midi.Soundbank;
 import java.util.Random;
 import java.util.Scanner;
 
