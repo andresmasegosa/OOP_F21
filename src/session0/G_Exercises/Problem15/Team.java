@@ -1,24 +1,17 @@
-package session0.G_Exercises.Problem15;
+package session0.excercise15;
 
 public class Team {
-    String name;
-    Player p1, p2;
+    String teamName;
+    BadmintonPlayer p1;
+    BadmintonPlayer p2;
 
-    Team(String name, Player one, Player two) {
-        this.name = name;
-        this.p1 = one;
-        this.p2 = two;
+    Team(String teamName, BadmintonPlayer p1, BadmintonPlayer p2){
+        this.teamName = teamName;
+        this.p1 = p1;
+        this.p2 = p2;
     }
 
-    double averageAge() {
-        return (p1.age + p2.age) / 2;
-    }
-
-    void printInfo() {
-        String teamInfo = String.format("Teamname: %s, Average Age: %.2f", this.name, averageAge());
-        System.out.println(teamInfo);
-        System.out.println("\tPlayer1) " + p1.toString());
-        System.out.println("\tPlayer2) " + p2.toString());
-        System.out.println();
+    double avgTeamAge(){
+        return (double) (this.p1.age + this.p2.age) / 2;
     }
 }
