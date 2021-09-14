@@ -1,4 +1,4 @@
-package session0.excercise15;
+package session0.G_Exercises.Problem15;
 
 public class Team {
     String teamName;
@@ -12,6 +12,7 @@ public class Team {
     }
 
     double avgTeamAge(){
+
         return (double) (this.p1.age + this.p2.age) / 2;
     }
 }
