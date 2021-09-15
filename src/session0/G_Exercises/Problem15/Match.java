@@ -1,103 +1,81 @@
-package session0.G_Exercises.Problem15;
-
-import java.util.Random;
-import java.util.Scanner;
-
 public class Match {
-    Team t1, t2;
-    double odds = .5;
+	Team red;
+	Team blue;
 
-    public static void main(String[] args) {
-        Random rng = new Random();
-        Scanner scanner = new Scanner(System.in);
+	Match(Team teamOne, Team teamTwo){
+		this.red = teamOne;
+		this.blue = teamTwo;
+	}
 
-        // Instantiate Players
-        Player p1 = new Player("Eric", "Cartman", 10),
-               p2 = new Player("Kenny", "McCormick", 10),
-               p3 = new Player("Herbert", "Garrison", 41),
-               p4 = new Player("Mr.", "Mackey", 50, "South Park Elementary");
+	double averageOfMatch(){
+		return ((red.teamAverage() + blue.teamAverage())/2);
+	}
 
-        // Instantiate Teams
-        Team redTeam = new Team("Red Team", p1, p2);
-        Team blueTeam = new Team("Blue Team", p3, p4);
+	double bestRatio(){
+		//return highest win ratio of all the players in the match.
+		if (red.playerWithHighestRatioOnTheTeam() > blue.playerWithHighestRatioOnTheTeam()) {
+			return red.playerWithHighestRatioOnTheTeam();
+		}
+		else
+			return blue.playerWithHighestRatioOnTheTeam();
+	}
 
-        // Instantiate Match
-        Match m = new Match(redTeam, blueTeam);
+	static boolean matchResult() {
+		//Math.random returns a value between 0.0 - 1.0. We round it and get a boolean answer to see who wins.
+		if (Math.round(Math.random()) == 0) {
+			System.out.println("Team red wins this round!");
+			return true;
+		}
+		else
+			System.out.println("Team blue wins this round!");
+			return false;
+	}
 
-        // Print Team Info
-        redTeam.printInfo();
-        blueTeam.printInfo();
+	public static void main(String[] args) {
+		Player player1 = new Player("Poul", "Richard", 27, 5, 2);
+		Player player2 = new Player("Life", "Bryan", 81, 10, 20);
+		Player player3 = new Player("Hob", "Scott", 15, 19, 28);
+		Player player4 = new Player("Eva", "Smith", 61, 20, 15);
 
-        // Simulate match
-        m.simulateMatch(rng);
+		Team red = new Team("red", player1, player2);
+		Team blue = new Team("blue", player3, player4);
 
-        // Print Team Info again
-        redTeam.printInfo();
-        blueTeam.printInfo();
+		Match match = new Match(red, blue);
 
-        // Simulate N Matches
-        System.out.print("Simulate N Matches, N: ");
-        int n = scanner.nextInt();
+		int maxRounds = 10;
+		System.out.println("This match has an average age of: " + match.averageOfMatch());
 
-        for(int i = 0; i < n; i++) {
-            m = new Match(redTeam, blueTeam, rng.nextDouble());
-            System.out.printf("Match %d: ", i+1);
-            m.simulateMatch(rng);
-        }
+		int blueWins = 0;
+		int redWins = 0;
 
-        System.out.println("\nFinal stats:");
-        redTeam.printInfo();
-        blueTeam.printInfo();
-    }
+		for(int i = 0; i < maxRounds; i++) {
+			System.out.println("Round: " + (i+1));
+			System.out.println("team red player 1: " + red.player1.ratio());
+			System.out.println("team red player 2: " + red.player2.ratio());
+			System.out.println("team blue player 1: " + blue.player1.ratio());
+			System.out.println("team blue player 2: " + blue.player2.ratio());
+			if (matchResult()) {
+				red.player1.wins += 1;
+				red.player1.ratio();
+				red.player2.wins += 1;
+				red.player2.ratio();
+				redWins ++;
+			}
+			else {
+				blue.player1.wins += 1;
+				blue.player1.ratio();
+				blue.player2.wins += 1;
+				blue.player2.ratio();
+				blueWins ++;
+			}
+			System.out.println("The current best player is ratio: " + match.bestRatio() + "\n");
+		}
+		if (redWins > blueWins){
+			System.out.println("The winner of the tournament is team red!!!!");
+		}
+		else {
+			System.out.println("The winner of the tournament is team blue!!!!");
+		}
+	}
 
-    Match(Team one, Team two) {
-        this.t1 = one;
-        this.t2 = two;
-    }
-
-    Match(Team one, Team two, double chance) {
-        this.t1 = one;
-        this.t2 = two;
-        this.odds = chance;
-    }
-
-    double averageAgeOfPlayers() {
-        return (this.t1.averageAge() + this.t2.averageAge())/2;
-    }
-
-    void simulateMatch(Random rng) {
-        if (rng.nextDouble() < odds)
-            updateTeamStats(t1, t2);
-        else
-            updateTeamStats(t2, t1);
-    }
-
-    private void updateTeamStats(Team winner, Team loser) {
-        winner.p1.wins++;
-        winner.p2.wins++;
-
-        loser.p1.losses++;
-        loser.p2.losses++;
-        printMatchResults(winner, loser);
-    }
-
-    private void printMatchResults(Team winner, Team loser) {
-        Player mvp = bestPlayer();
-        System.out.println(
-                String.format("%s vs %s | %s WINS! | MVP: %s %s, Ratio: %.2f | (Avg. age of players: %.2f)",
-                        t1.name, t2.name,
-                        winner.name,
-                        mvp.firstName, mvp.lastName, mvp.ratio(),
-                        averageAgeOfPlayers()
-                )
-        );
-    }
-
-    Player bestPlayer() {
-        Player best = t1.p1;
-        if (t1.p2.ratio() > best.ratio()) best = t1.p2;
-        if (t2.p1.ratio() > best.ratio()) best = t2.p1;
-        if (t2.p2.ratio() > best.ratio()) best = t2.p2;
-        return best;
-    }
 }
