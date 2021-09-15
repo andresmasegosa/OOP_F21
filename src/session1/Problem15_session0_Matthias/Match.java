@@ -54,10 +54,10 @@ public class Match {
     }
 
     Player bestPlayer() {
-        Player best = t1.p1;
-        if (t1.p2.ratio() > best.ratio()) best = t1.p2;
-        if (t2.p1.ratio() > best.ratio()) best = t2.p1;
-        if (t2.p2.ratio() > best.ratio()) best = t2.p2;
-        return best;
+
+        if (this.t1.bestTeamPlayer().ratio()>this.t2.bestTeamPlayer().ratio())
+            return this.t1.bestTeamPlayer();
+        else
+            return this.t2.bestTeamPlayer();
     }
 }

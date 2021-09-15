@@ -37,6 +37,13 @@ public class Team {
         this.p2.updatePlayerStats(wonMatch);
     }
 
+    Player bestTeamPlayer() {
+        if (this.p1.ratio()>this.p2.ratio())
+            return p1;
+        else
+            return p2;
+    }
+
     public static void main(String[] args) {
         Player p1 = new Player("Eric", "Cartman", 10),
                 p2 = new Player("Kenny", "McCormick", 10);
