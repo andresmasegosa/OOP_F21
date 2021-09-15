@@ -11,8 +11,9 @@ public class Team {
     }
 
     double averageAge() {
-        return (p1.age + p2.age) / 2;
+        return (p1.getAge() + p2.getAge()) / 2.0;
     }
+
 
     void printInfo() {
         String teamInfo = String.format("Teamname: %s, Average Age: %.2f", this.name, averageAge());
@@ -20,5 +21,29 @@ public class Team {
         System.out.println("\tPlayer1) " + p1.toString());
         System.out.println("\tPlayer2) " + p2.toString());
         System.out.println();
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "name='" + this.name + '\'' +
+                ", p1=" + this.p1 +
+                ", p2=" + this.p2 +
+                '}';
+    }
+
+    public void updateTeamStats(boolean wonMatch) {
+        this.p1.updatePlayerStats(wonMatch);
+        this.p2.updatePlayerStats(wonMatch);
+    }
+
+    public static void main(String[] args) {
+        Player p1 = new Player("Eric", "Cartman", 10),
+                p2 = new Player("Kenny", "McCormick", 10);
+
+        // Instantiate Teams
+        Team redTeam = new Team("Red Team", p1, p2);
+
+        System.out.println(redTeam);
     }
 }

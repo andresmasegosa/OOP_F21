@@ -1,54 +1,10 @@
 package session1.Problem15_session0_Matthias;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Match {
     Team t1, t2;
     double odds = .5;
-
-    public static void main(String[] args) {
-        Random rng = new Random();
-        Scanner scanner = new Scanner(System.in);
-
-        // Instantiate Players
-        Player p1 = new Player("Eric", "Cartman", 10),
-               p2 = new Player("Kenny", "McCormick", 10),
-               p3 = new Player("Herbert", "Garrison", 41),
-               p4 = new Player("Mr.", "Mackey", 50, "South Park Elementary");
-
-        // Instantiate Teams
-        Team redTeam = new Team("Red Team", p1, p2);
-        Team blueTeam = new Team("Blue Team", p3, p4);
-
-        // Instantiate Match
-        Match m = new Match(redTeam, blueTeam);
-
-        // Print Team Info
-        redTeam.printInfo();
-        blueTeam.printInfo();
-
-        // Simulate match
-        m.simulateMatch(rng);
-
-        // Print Team Info again
-        redTeam.printInfo();
-        blueTeam.printInfo();
-
-        // Simulate N Matches
-        System.out.print("Simulate N Matches, N: ");
-        int n = scanner.nextInt();
-
-        for(int i = 0; i < n; i++) {
-            m = new Match(redTeam, blueTeam, rng.nextDouble());
-            System.out.printf("Match %d: ", i+1);
-            m.simulateMatch(rng);
-        }
-
-        System.out.println("\nFinal stats:");
-        redTeam.printInfo();
-        blueTeam.printInfo();
-    }
 
     Match(Team one, Team two) {
         this.t1 = one;
@@ -67,17 +23,21 @@ public class Match {
 
     void simulateMatch(Random rng) {
         if (rng.nextDouble() < odds)
-            updateTeamStats(t1, t2);
+            updateMatchStats(t1, t2);
         else
-            updateTeamStats(t2, t1);
+            updateMatchStats(t2, t1);
     }
 
-    private void updateTeamStats(Team winner, Team loser) {
-        winner.p1.wins++;
-        winner.p2.wins++;
+    private void updateMatchStats(Team winner, Team loser) {
+        winner.updateTeamStats(true);
+        loser.updateTeamStats(false);
 
-        loser.p1.losses++;
-        loser.p2.losses++;
+        //winner.p1.numberOfWonMatches++;
+        //winner.p2.numberOfWonMatches++;
+
+        //loser.p1.numberOfLostMatches++;
+        //loser.p2.numberOfLostMatches++;
+
         printMatchResults(winner, loser);
     }
 
