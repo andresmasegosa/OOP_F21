@@ -1,4 +1,4 @@
-package session0.G_Exercises;
+package session0.exercises;
 
 public class Arrays {
     public static void main(String[] args) {

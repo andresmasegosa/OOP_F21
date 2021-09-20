@@ -1,4 +1,4 @@
-package session0.G_Exercises.Problem15;
+package session0.exercises.contributions.matthias.problem15;
 
 import java.util.Random;
 import java.util.Scanner;
