@@ -13,6 +13,12 @@ session0.excercises.contributions.matthias
 
 ## How to set up IntelliJ's project
 
+First be sure you have installed the following software:
+
+* JDK 16 (https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
+* IntelliJ Community Edition (https://www.jetbrains.com/idea/download/)
+* Git Client (https://git-scm.com/downloads)
+
 This video shows how to set up IntelliJ's project with the code of this repo. 
 
 [Video: How to Set Up IntellJ's project](https://drive.google.com/file/d/1DKHkptzJ0bZVx79PK8ZK178LFAUzMoW6/view?usp=sharing)
