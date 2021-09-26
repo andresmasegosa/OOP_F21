@@ -89,6 +89,36 @@ public class Piece {
         return false;
     }
 
+    boolean horseMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+        if(((Math.abs(xCurrent - xFuture) == 1) && ((Math.abs(yCurrent - yFuture)) == 2)) ||
+            (Math.abs(xCurrent - xFuture) == 2) && ((Math.abs(yCurrent - yFuture)) == 1)){
+            return true;
+        }
+        return false;
+    }
+
+    boolean bishopMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+        if(xCurrent - xFuture == yCurrent - yFuture){
+           return true;
+        }
+        return false;
+    }
+
+    boolean queenMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+        if(((xCurrent == xFuture) ||(yCurrent == yFuture)) || (xCurrent - xFuture == yCurrent - yFuture)){
+            return true;
+        }
+        return false;
+    }
+
+    boolean kingMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+        if((Math.abs(xCurrent - xFuture) <= 1) || (Math.abs(yCurrent - yFuture) <= 1)){
+            return true;
+        }
+
+        return false;
+    }
+
     @Override
     public String toString() {
         return "Piece{" +

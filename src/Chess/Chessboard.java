@@ -77,16 +77,16 @@ public class Chessboard {
                 return piece.rookMove(xCurrent,yCurrent,xFuture,yFuture);
             }
             case HORSE -> {
-                return false;
+                return piece.horseMove(xCurrent,yCurrent,xFuture,yFuture);
             }
             case BISHOP -> {
-                return false;
+                return piece.bishopMove(xCurrent,yCurrent,xFuture, yFuture);
             }
             case QUEEN -> {
-                return false;
+                return piece.queenMove(xCurrent, yCurrent, xFuture, yFuture);
             }
             case KING -> {
-                return false;
+                return piece.kingMove(xCurrent, yCurrent, xFuture, yFuture);
             }
             default -> {
                 return false;
@@ -110,13 +110,15 @@ public class Chessboard {
                 System.out.println("Game over.");
                 return;
             }
-            //System.out.println(this.piecesOnChessboard[yCurrent][xCurrent].nameOfPiece);
 
-            boolean isLegalMove = this.checkLegalMove(this.piecesOnChessboard[yCurrent][xCurrent], xCurrent, yCurrent, xFuture, yFuture);
-            //System.out.println("the move is legal: " + isLegalMove);
-            if(isLegalMove){
-                this.piecesOnChessboard[yFuture][xFuture] = this.piecesOnChessboard[yCurrent][xCurrent];
-                this.piecesOnChessboard[yCurrent][xCurrent] = new Piece(Color.NO_COLOR, PieceNames.NO_PIECE);
+            if((xCurrent - xFuture != 0) || (yCurrent - yFuture != 0)){
+                //System.out.println(this.piecesOnChessboard[yCurrent][xCurrent].nameOfPiece);
+                boolean isLegalMove = this.checkLegalMove(this.piecesOnChessboard[yCurrent][xCurrent], xCurrent, yCurrent, xFuture, yFuture);
+                //(System.out.println("the move is legal: " + isLegalMove);
+                if(isLegalMove){
+                    this.piecesOnChessboard[yFuture][xFuture] = this.piecesOnChessboard[yCurrent][xCurrent];
+                    this.piecesOnChessboard[yCurrent][xCurrent] = new Piece(Color.NO_COLOR, PieceNames.NO_PIECE);
+                }
             }
             this.printChessBoard();
         }
