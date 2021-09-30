@@ -10,8 +10,8 @@ public class Chessboard {
     }
 
     public void printChessBoard(){
-        for(int i = 0; i < 8; i++){
-            for(int j = 0; j < 8; j++){
+        for(int i = 0; i <= 7; i++){
+            for(int j = 0; j <= 7; j++){
                 System.out.print(this.piecesOnChessboard[i][j].getPieceSymbol());
             }
             System.out.println();
@@ -68,7 +68,7 @@ public class Chessboard {
         this.piecesOnChessboard[7][4] = blackKing;
     }
 
-    public boolean checkLegalMove(Piece piece, int xCurrent, int yCurrent, int xFuture, int yFuture){
+    public boolean checkMoveRules(Piece piece, int xCurrent, int yCurrent, int xFuture, int yFuture){
         switch (piece.nameOfPiece){
             case PAWN -> {
                 return piece.pawnMove(xCurrent, yCurrent, xFuture, yFuture);
@@ -94,33 +94,47 @@ public class Chessboard {
         }
     }
 
+    public boolean isInputValid(int xCurrent, int yCurrent, int xFuture, int yFuture){
+        //if user want to exit game, or if input is out of array
+        if(xCurrent > 7 || yCurrent > 7 || xFuture > 7 || yFuture > 7){
+            System.out.println("Game over.");
+            System.exit(0);
+        }
+        //if move means not moving the piece
+        else if ((xCurrent - xFuture == 0) && (yCurrent - yFuture == 0)){ return false; }
+
+        return true;
+    }
+
+    public void updateChessBoard(int xCurrent, int yCurrent, int xFuture, int yFuture){
+        this.piecesOnChessboard[yFuture][xFuture] = this.piecesOnChessboard[yCurrent][xCurrent];
+        this.piecesOnChessboard[yCurrent][xCurrent] = new Piece(Color.NO_COLOR, PieceNames.NO_PIECE);
+    }
+
     public void playChessGame(){
+
         //create Scanner object to take user input
         Scanner moveInput = new Scanner(System.in);
+
         boolean stillPlaying = true;
+        boolean validInput;
+        boolean isLegalMove;
         while (stillPlaying){
+            this.printChessBoard();
             System.out.print("Enter move (9 9 9 9 to exit): ");
             int xCurrent = moveInput.nextInt() - 1;
             int yCurrent = moveInput.nextInt() - 1;
             int xFuture = moveInput.nextInt() - 1;
             int yFuture = moveInput.nextInt() - 1;
 
-            if(xCurrent > 7 && yCurrent > 7 && xFuture > 7 && yFuture > 7){
-                stillPlaying = false;
-                System.out.println("Game over.");
-                return;
-            }
+            validInput = isInputValid(xCurrent, yCurrent, xFuture, yFuture);
+            isLegalMove = this.checkMoveRules(this.piecesOnChessboard[yCurrent][xCurrent], xCurrent, yCurrent, xFuture, yFuture);
 
-            if((xCurrent - xFuture != 0) || (yCurrent - yFuture != 0)){
-                //System.out.println(this.piecesOnChessboard[yCurrent][xCurrent].nameOfPiece);
-                boolean isLegalMove = this.checkLegalMove(this.piecesOnChessboard[yCurrent][xCurrent], xCurrent, yCurrent, xFuture, yFuture);
-                //(System.out.println("the move is legal: " + isLegalMove);
-                if(isLegalMove){
-                    this.piecesOnChessboard[yFuture][xFuture] = this.piecesOnChessboard[yCurrent][xCurrent];
-                    this.piecesOnChessboard[yCurrent][xCurrent] = new Piece(Color.NO_COLOR, PieceNames.NO_PIECE);
-                }
+            if(validInput && isLegalMove){
+                updateChessBoard(xCurrent, yCurrent, xFuture, yFuture);
+            } else {
+                stillPlaying = false;
             }
-            this.printChessBoard();
         }
     }
 
@@ -131,11 +145,7 @@ public class Chessboard {
         //setup pieces for a new game
         ChessBoard.setupNewChessGame();
 
-        //print the chess board to start the game
-        ChessBoard.printChessBoard();
-
         //start playing chess
         ChessBoard.playChessGame();
-
     }
 }

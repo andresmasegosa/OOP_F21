@@ -51,45 +51,45 @@ public class Piece {
         }
     }
 
-    boolean pawnMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+    public boolean pawnMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
         //check if white pawn is at start location
         if(this.playerColor == Color.WHITE){
-            if(yCurrent == 1){
+            //checks if white pawn move is 1 square forward
+            if((xCurrent == xFuture) && (yFuture - yCurrent == 1)){
+                return true;
+            }
+            else if(yCurrent == 1){
                 if((xCurrent == xFuture) && (yFuture - yCurrent) == 2){
                     return true;
                 }
-            }
-            //checks if white pawn move is 1 square forward
-            else if((xCurrent == xFuture) && (yFuture - yCurrent == 1)){
-                return true;
             }
 
         }
 
         //else runs only if piece is black
         else{
+            //checks if black pawn move is 1 square forward
+            if((xCurrent == xFuture) && (yCurrent - yFuture == 1)){
+                return true;
+            }
             //check if black pawn is at start location
-            if(yCurrent == 6){
+            else if(yCurrent == 6){
                 if((xCurrent == xFuture) && (yCurrent - yFuture) == 2){
                     return true;
                 }
-            }
-            //checks if black pawn move is 1 square forward
-            else if((xCurrent == xFuture) && (yCurrent - yFuture == 1)){
-                return true;
             }
         }
         return false;
     }
 
-    boolean rookMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+    public boolean rookMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
         if((xCurrent == xFuture) ||(yCurrent == yFuture)){
             return true;
         }
         return false;
     }
 
-    boolean horseMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+    public boolean horseMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
         if(((Math.abs(xCurrent - xFuture) == 1) && ((Math.abs(yCurrent - yFuture)) == 2)) ||
             (Math.abs(xCurrent - xFuture) == 2) && ((Math.abs(yCurrent - yFuture)) == 1)){
             return true;
@@ -97,21 +97,21 @@ public class Piece {
         return false;
     }
 
-    boolean bishopMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
-        if(xCurrent - xFuture == yCurrent - yFuture){
+    public boolean bishopMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+        if(Math.abs(xCurrent - xFuture) == Math.abs(yCurrent - yFuture)){
            return true;
         }
         return false;
     }
 
-    boolean queenMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+    public boolean queenMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
         if(((xCurrent == xFuture) ||(yCurrent == yFuture)) || (xCurrent - xFuture == yCurrent - yFuture)){
             return true;
         }
         return false;
     }
 
-    boolean kingMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
+    public boolean kingMove(int xCurrent, int yCurrent, int xFuture, int yFuture){
         if((Math.abs(xCurrent - xFuture) <= 1) || (Math.abs(yCurrent - yFuture) <= 1)){
             return true;
         }
