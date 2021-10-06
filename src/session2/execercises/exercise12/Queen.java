@@ -1,4 +1,4 @@
-package session2.execercises.exercise9;
+package session2.execercises.exercise12;
 
 public class Queen extends ChessPiece {
 
