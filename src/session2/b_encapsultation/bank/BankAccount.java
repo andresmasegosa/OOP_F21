@@ -3,6 +3,7 @@ package session2.b_encapsultation.bank;
 
 public class BankAccount {
 
+
     public int balance;
 
     public BankAccount(int balance) {
