@@ -16,7 +16,7 @@ session0.excercises.contributions.matthias
 First be sure you have installed the following software:
 
 * JDK 16 (https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
-* IntelliJ Community Edition (https://www.jetbrains.com/idea/download/)
+* IntelliJ Ultimate Edition. You can get it using you AAU email (https://www.jetbrains.com/idea/download/).
 * Git Client (https://git-scm.com/downloads)
 
 This video shows how to set up IntelliJ's project with the code of this repo. 
