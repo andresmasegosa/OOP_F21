@@ -2,9 +2,9 @@ package session4.vendingmachine;
 
 public class VendingMachine {
 
-    Product[] products = new Product[10];
+    private Product[] products = new Product[10];
 
-    Sale lastSale = null;
+    private Sale lastSale = null;
 
     public void setProductAtSlot(Product product, int slot){
         this.products[slot]=product;

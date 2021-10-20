@@ -8,15 +8,15 @@ public class Product {
         this.name = name;
     }
 
-    public String getName() {
+     public String getName() {
         return name;
     }
 
-    public double getPrice() {
+     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+     public void setPrice(double price) {
         this.price = price;
     }
 }

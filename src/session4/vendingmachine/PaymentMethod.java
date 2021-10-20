@@ -1,7 +1,7 @@
 package session4.vendingmachine;
 
 public class PaymentMethod {
-    protected double balance;
+    private double balance;
 
     public PaymentMethod(double initialBalance){
         this.balance = initialBalance;
