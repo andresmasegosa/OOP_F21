@@ -14,22 +14,12 @@ public class ShoppingCart{
         this.products[numberOfProducts++]=product;
     }
 
-    public boolean pay(CreditCard card){
+    public boolean pay(PaymentStrategy paymentStrategy){
         double totalPrice=0;
-         for (Product product: products){
-             totalPrice+=product.getPrice();
+         for (int i = 0; i < numberOfProducts; i++){
+             totalPrice+=products[i].getPrice();
          }
 
-         return card.chargeToTheCreditCard(totalPrice);
+         return paymentStrategy.pay(totalPrice);
     }
-
-    public boolean pay(PayPal payPal){
-        double totalPrice=0;
-        for (Product product: products){
-            totalPrice+=product.getPrice();
-        }
-
-        return payPal.processPayment(totalPrice);
-    }
-
 }
