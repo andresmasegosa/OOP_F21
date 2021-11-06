@@ -25,8 +25,8 @@ public class ShoppingCart{
 
     public boolean pay(PayPal payPal){
         double totalPrice=0;
-        for (Product product: products){
-            totalPrice+=product.getPrice();
+        for (int i = 0; i < products.length; i++) {
+            totalPrice+=products[i].getPrice();
         }
 
         return payPal.processPayment(totalPrice);
