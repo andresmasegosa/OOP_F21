@@ -1,4 +1,4 @@
-package session6.a_generics.a_generics;
+package session6.a_generics;
 
 import java.util.Date;
 
