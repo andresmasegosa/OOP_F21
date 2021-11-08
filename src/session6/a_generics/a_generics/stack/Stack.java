@@ -9,7 +9,7 @@ public class Stack<T> {
     }
 
     T pop() {
-        return stack[-1];
+        return stack[--count];
     }
     void push(T o) {
         stack[count++]=o;
