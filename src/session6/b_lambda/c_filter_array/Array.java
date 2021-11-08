@@ -1,4 +1,4 @@
-package session6.b_lambda.filter_array;
+package session6.b_lambda.c_filter_array;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;

@@ -1,4 +1,4 @@
-package session6.b_lambda.inverter;
+package session6.b_lambda.a_inverter;
 
 public class DivisionInverter implements Inverter {
     public double invert(double x) {

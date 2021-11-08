@@ -1,4 +1,4 @@
-package session6.a_generics.a_generics.stack;
+package session6.a_generics.stack;
 
 public class Stack<T> {
     private T[] stack;

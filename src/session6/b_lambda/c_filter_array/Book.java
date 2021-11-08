@@ -1,4 +1,4 @@
-package session6.b_lambda.filter_array;
+package session6.b_lambda.c_filter_array;
 
 public class Book {
     String name;

@@ -1,7 +1,4 @@
-package session6.b_lambda.genericinverter;
-
-import session6.b_lambda.inverter.DivisionInverter;
-import session6.b_lambda.inverter.Inverter;
+package session6.b_lambda.b_generic_inverter;
 
 import java.util.function.Function;
 
