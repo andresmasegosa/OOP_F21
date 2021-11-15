@@ -1,7 +1,7 @@
 package session4.vendingmachine;
 
 public class Product {
-     private String name;
+     protected String name;
      private double price;
 
      public Product(String name) {
