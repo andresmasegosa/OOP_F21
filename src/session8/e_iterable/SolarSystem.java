@@ -4,8 +4,10 @@ import java.util.*;
 
 public class SolarSystem implements Iterable<Planet>{
     Collection<Planet> planets;
+    String name;
 
-    public SolarSystem(Planet... planets) {
+    public SolarSystem(String name, Planet... planets) {
+        this.name = name;
         this.planets = new ArrayList<>();
 
         for (Planet system: planets)
@@ -13,6 +15,11 @@ public class SolarSystem implements Iterable<Planet>{
 
     }
 
+
+    public Planet getClosesPlanetToSun(){
+        //Do something
+        return null;
+    }
 
     @Override
     public Iterator<Planet> iterator() {

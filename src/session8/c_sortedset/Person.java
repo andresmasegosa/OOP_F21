@@ -11,6 +11,7 @@ class Person implements Comparable<Person> {
         this.age = age;
     }
 
+    @Override
     public int compareTo(Person that) {
         int fstNameCmp = this.fstName.compareTo(that.fstName);
 

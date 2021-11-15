@@ -2,6 +2,7 @@ package session8.a_list;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class DemoSortList {
@@ -15,9 +16,11 @@ public class DemoSortList {
         cards.add("Ace of Hearts");
         cards.add("Two of Clubs");
 
-        Collections.sort(cards, (c1,c2)-> c1.compareTo(c2));
+        //Collections.sort(cards, (o1,o2)-> o1.compareTo(o2));
+        Collections.sort(cards, (o1,o2)-> o1.length() - o2.length());
+        Comparator<String> comparator = new StringOrder();
+        Collections.sort(cards, comparator);
 
-        System.out.println(cards);
         for (String card: cards){
             System.out.println(card);
         }
