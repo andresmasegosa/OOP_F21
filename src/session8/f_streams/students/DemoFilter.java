@@ -15,6 +15,11 @@ public class DemoFilter {
             System.out.println(name);
         }
 
+        List<String> namesEndingWithN = names.stream().filter(name -> name.endsWith("n")).collect(Collectors.toList());
+        for (String name: namesEndingWithN){
+            System.out.println(name);
+        }
+
         //Exercise: Filter those names which ends with an "n".
 
 
