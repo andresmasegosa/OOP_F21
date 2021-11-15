@@ -6,8 +6,8 @@ import java.util.stream.Collector;
 public class SolarSystemCollector {
 
     public static Collector<Planet, SolarSystem, SolarSystem> collect(){
-        return Collector.of(SolarSystem::new, SolarSystem::addPlanet,
-                (left, right) -> { left.addSolarSystem(right); return left; });
+        return Collector.of(SolarSystem::new, SolarSystem::add,
+                (left, right) -> { left.addAll(right); return left; });
     }
 
 }

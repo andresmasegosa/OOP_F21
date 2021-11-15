@@ -1,4 +1,4 @@
-package session8.e_iterator;
+package session8.e_iterable;
 
 import java.util.*;
 
