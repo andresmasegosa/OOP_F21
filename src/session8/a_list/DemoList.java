@@ -20,6 +20,15 @@ public class DemoList {
         System.out.println(index);
 
         //Exercise: Print all elements of the list using a for-loop
+        for(int i = 0; i < cards.size(); i++) {
+            System.out.println(cards.get(i));
+        }
+
+        System.out.println("");
+
+        for (String card : cards) {
+            System.out.println(card);
+        }
 
     }
 

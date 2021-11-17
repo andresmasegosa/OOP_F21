@@ -5,11 +5,10 @@ import java.util.*;
 public class SolarSystem implements Iterable<Planet>{
     Collection<Planet> planets;
 
-    public SolarSystem(Planet... planets) {
+    public SolarSystem(String solars_system, Planet... planets) {
         this.planets = new ArrayList<>();
 
-        for (Planet system: planets)
-            this.planets.add(system);
+        this.planets.addAll(Arrays.asList(planets));
 
     }
 

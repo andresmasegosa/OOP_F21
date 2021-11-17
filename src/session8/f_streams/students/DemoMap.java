@@ -9,14 +9,17 @@ public class DemoMap {
 
         List<String> names = Names.names;
 
-        List<String> upperCaseNames = names.stream().map(name -> name.toUpperCase()).collect(Collectors.toList());
+        /*List<String> upperCaseNames = names.stream().map(name -> name.toUpperCase()).collect(Collectors.toList());
 
         for (String name: upperCaseNames){
             System.out.println(name);
-        }
+        }*/
 
         //Exercise: Only convert to upper case those names which ends with an "n". Tip: Filter first and then do the map.
+        List<String> upperCaseNamesEndsWithN = names.stream().filter(name -> name.startsWith("N")).map(name -> name.toUpperCase()).collect(Collectors.toList());
 
-
+        for (String name: upperCaseNamesEndsWithN){
+            System.out.println(name);
+        }
     }
 }

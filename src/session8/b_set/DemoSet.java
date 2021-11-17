@@ -20,7 +20,9 @@ public class DemoSet {
         System.out.println(size);
 
         //Exercise: Print all elements of the set using a for-loop
-
+        for (int i = 0; i < cards.size(); i++) {
+            System.out.println(cards);
+        }
 
     }
 }

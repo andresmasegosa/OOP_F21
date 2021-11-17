@@ -7,8 +7,10 @@ public class Demo {
         Planet venus = new Planet("Venus");
         Planet earth = new Planet("Earth");
         Planet mars = new Planet("Mars");
+        Planet pluto = new Planet("pluto");
 
-        SolarSystem solarSystem = new SolarSystem(venus,earth,mars);
+
+        SolarSystem solarSystem = new SolarSystem("Solar System", venus, earth, mars, pluto);
 
         for (Planet system: solarSystem){
             System.out.println(system);

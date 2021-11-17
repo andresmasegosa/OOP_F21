@@ -10,14 +10,17 @@ public class DemoMapStudent {
 
         List<String> names = Names.names;
 
-        List<Student> students = names.stream().map(name -> new Student(name)).collect(Collectors.toList());
+        /*List<Student> students = names.stream().map(name -> new Student(name)).collect(Collectors.toList());
 
         for (Student student: students){
             System.out.println(student);
-        }
+        }*/
 
         //Exercise: Use the local variable **students** and create another list with Student objects whose name ends with an "n".
+        List<Student> studentsEndsWithN = names.stream().filter(name -> name.startsWith("N")).map(name -> new Student(name)).collect(Collectors.toList());
 
-
+        for (Student student: studentsEndsWithN){
+            System.out.println(student);
+        }
     }
 }
