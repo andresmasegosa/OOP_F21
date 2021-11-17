@@ -12,8 +12,16 @@ public class Demo {
         Planet mars = new Planet("Mars");
 
         SolarSystem solarSystem = new SolarSystem(venus,earth,mars);
-
-        SolarSystem solarSystem2 = solarSystem.stream().filter(planet -> planet.getName().contains("s")).collect(SolarSystemCollector.collect());
+        boolean flag = false;
+        SolarSystem solarSystem2 = solarSystem.stream()
+                .filter(planet -> {
+                    if (flag) {
+                        return planet.getName().contains("s");
+                    }else{
+                        return planet.getName().contains("n");
+                    }
+                })
+                .collect(SolarSystemCollector.collect());
 
         for (Planet planet: solarSystem2){
             System.out.println(planet);
