@@ -12,12 +12,11 @@ public class DemoParallelStream {
 
         long start = System.currentTimeMillis();
         List<Student> students = names.stream().map(name -> { try{
-                                                                        TimeUnit.MILLISECONDS.sleep(300);
-                                                                    }catch(InterruptedException ex){
-                                                                        Thread.currentThread().interrupt();
-                                                                    }
-                                                                    return new Student(name);}
-                                                                ).collect(Collectors.toList());
+            TimeUnit.MILLISECONDS.sleep(300);
+        }catch(InterruptedException ex){
+            Thread.currentThread().interrupt();}
+                    return new Student(name);}
+        ).collect(Collectors.toList());
 
 
         long finish = System.currentTimeMillis();
