@@ -15,13 +15,7 @@ public class DemoSortList {
         cards.add("Ace of Hearts");
         cards.add("Two of Clubs");
 
-        //Collections.sort(cards, (c1,c2)-> c1.compareTo(c2));
-        //cards.sort(String::compareTo);
-
-        // Other sort methods
-        //Collections.sort(cards, (c1,c2)-> c1.length());
-        //Collections.sort(cards, (c1,c2)-> c1.length() - c2.length());
-        Collections.sort(cards, (c1,c2)-> c2.length() - c1.length());
+        Collections.sort(cards, (c1,c2)-> c1.compareTo(c2));
 
         System.out.println(cards);
         for (String card: cards){

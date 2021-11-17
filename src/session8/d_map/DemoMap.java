@@ -13,6 +13,8 @@ public class DemoMap {
 
         Integer obamaYear = birthYear.get("Barack Obama");
 
+
+
         System.out.println("Mr. Obama was born in: " + obamaYear);
         System.out.println();
 
