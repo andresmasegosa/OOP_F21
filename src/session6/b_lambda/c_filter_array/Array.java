@@ -5,11 +5,14 @@ import java.util.function.Predicate;
 
 public class Array {
     public static <T>  ArrayList<T> filter(ArrayList<T> array, Predicate<T> filterFunction){
+
         ArrayList<T> newarray =new ArrayList<T>();
+
         for (T element: array){
             if (filterFunction.test(element))
                 newarray.add(element);
         }
+
         return newarray;
     }
 }
