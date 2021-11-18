@@ -1,7 +1,5 @@
 package session9.b_customexceptions;
 
-import session9.a_bankaccount.BankAccount;
-
 import java.util.Scanner;
 
 /**
@@ -21,7 +19,9 @@ public class Exercise_DemoDeposit {
             System.out.println("Current Account Balance: "+account.getBalance());
 
             System.out.println("Enter an amount to deposit:");
+
             int amount = scanner.nextInt();
+
 
             try {
                 account.deposit(amount);

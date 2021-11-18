@@ -1,5 +1,6 @@
 package session9.a_bankaccount;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,12 +16,15 @@ public class Exercise_DemoDeposit {
             System.out.println("Current Account Balance: "+account.getBalance());
 
             System.out.println("Enter an amount to deposit:");
-            int amount = scanner.nextInt();
+
 
             try {
+                int amount = scanner.nextInt();
                 account.deposit(amount);
             } catch (IllegalArgumentException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
+            } catch (InputMismatchException e) {
+                System.out.println("Input a number: "+ e.getMessage());
             }
         }
     }

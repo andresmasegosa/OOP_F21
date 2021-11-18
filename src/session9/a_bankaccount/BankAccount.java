@@ -24,6 +24,10 @@ public class BankAccount {
     }
 
     public void deposit(int amount) {
+        if (amount <= 0){
+            String msg = "Amount must be positive.";
+            throw new IllegalArgumentException(msg);
+        }
         balance = balance + amount;
     }
 }

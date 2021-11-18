@@ -21,4 +21,12 @@ public class BankAccount {
         }
         balance = balance - amount;
     }
+
+    public void deposit(int amount) {
+        if (amount < 0) {
+            String msg = "Bruh";
+            throw new NegativeDepositException(msg);
+        }
+        balance += amount;
+    }
 }
