@@ -4,7 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Introduce changes in the deposit method of the BankAccount to avoid that a negative quantity can be deposited.
+ * Introduce changes in the deposit method of the BankAccount to avoid that
+ * a negative quantity can be deposited.
  */
 public class Exercise_DemoDeposit {
     public static void main(String[] args) {

@@ -13,7 +13,8 @@ public class BankAccount {
 
     public void withdraw(int amount) {
         if (amount <= 0) {
-            throw new NegativeAmountException();
+            NegativeAmountException exception = new NegativeAmountException();
+            throw exception;
         }
         if (amount >= balance) {
             int deficit = amount - balance;
