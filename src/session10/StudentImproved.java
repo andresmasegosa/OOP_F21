@@ -7,7 +7,15 @@ public class StudentImproved {
     private String university;
 
     public StudentImproved(String name) {
-        this.name = name;
+        if (!name.contains(",")) {
+            this.name = name;
+        } else {
+            String[] csventries = name.split(",");
+            this.name = csventries[0].trim();
+            this.age = Integer.parseInt(csventries[1].trim());
+            this.city = csventries[2].trim();
+            this.university = csventries[3].trim();
+        }
     }
 
     public void setAge(int age) {
