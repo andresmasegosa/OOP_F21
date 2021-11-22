@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class d_ReadingURLFileByByte {
-    public static void main(String[] args) throws URISyntaxException, MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException {
 
         URL url = new URL("https://raw.githubusercontent.com/andresmasegosa/OOP_F21/main/README.md");
 

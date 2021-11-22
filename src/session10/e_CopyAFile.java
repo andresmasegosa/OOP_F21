@@ -13,6 +13,8 @@ public class e_CopyAFile {
         Path inputPath = Paths.get("./src/session10/giraffe.jpg");
         Path outputPath = Paths.get("./src/session10/giraffe2.jpg");
 
+        long start = System.currentTimeMillis();
+
         try (InputStream is = Files.newInputStream(inputPath);
              OutputStream os = Files.newOutputStream(outputPath)) {
 
@@ -25,8 +27,29 @@ public class e_CopyAFile {
             System.out.println("Unable to read/write the file.");
         }
 
+        long finish = System.currentTimeMillis();
+        System.out.println(finish - start + " milliseconds");
+
         // Exercise: Read and write the files in chunks of 10000 bytes,
         // using the appropriate methods of InputStream and OutputStream.
+
+        start = System.currentTimeMillis();
+
+        try (InputStream is = Files.newInputStream(inputPath);
+             OutputStream os = Files.newOutputStream(outputPath)) {
+
+            byte[] bytes = new byte[10000];
+            int b;
+            while ((b = is.read(bytes)) != -1) {
+                os.write(bytes,0,b);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Unable to read/write the file.");
+        }
+        finish = System.currentTimeMillis();
+        System.out.println(finish - start + " milliseconds");
+
 
 
     }
