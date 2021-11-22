@@ -1,15 +1,17 @@
 package session9.b_customexceptions;
 
-import session9.a_bankaccount.BankAccount;
-
 import java.util.Scanner;
 
 /**
- *  - Introduce changes in the deposit method of the BankAccount to avoid that a negative
- *    quantity can be deposited using a custom exception "NegativeDepositException".
+ *  - Introduce changes in the deposit method of the
+ *    BankAccount to avoid that a negative
+ *    quantity can be deposited using a custom
+ *    exception "NegativeDepositException".
  *
- *  - Introduce a custom exception "WarningLargeDeposit" to give a warning to the user when s/he is depositing
- *    more than 100_000 DKK, stating that s/he must justify the origin of the money to SKAT.
+ *  - Introduce a custom exception "WarningLargeDeposit"
+ *    to give a warning to the user when s/he is depositing
+ *    more than 100_000 DKK, stating that s/he must justify
+ *    the origin of the money to SKAT.
  */
 public class Exercise_DemoDeposit {
     public static void main(String[] args) {
@@ -25,7 +27,9 @@ public class Exercise_DemoDeposit {
 
             try {
                 account.deposit(amount);
-            } catch (IllegalArgumentException e) {
+            } catch (NegativeDepositException e) {
+                System.out.println("Something went wrong: " + e.getMessage());
+            } catch (WarningLargeDeposit e){
                 System.out.println("Something went wrong: " + e.getMessage());
             }
         }
