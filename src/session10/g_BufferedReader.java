@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class g_BufferedReader {
 
@@ -35,6 +37,12 @@ public class g_BufferedReader {
 
         //Exercise: Read each line and create a Student object (using map function).
         //          Finally, print out all students objects.
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("./src/session10/names.csv"))) {
+            List<StudentImproved> students = reader.lines().map(StudentImproved::new).toList();
+            students.forEach(System.out::println);
+        } catch (IOException e) {
+            System.out.println("Unable to read the file.");
+        }
 
 
 
