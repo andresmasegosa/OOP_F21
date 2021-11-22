@@ -31,4 +31,9 @@ public class StudentImproved {
                 ", university='" + university + '\'' +
                 '}';
     }
+
+
+    public int getAge() {
+        return this.age;
+    }
 }
