@@ -16,6 +16,7 @@ public class DemoSortList {
         cards.add("Two of Clubs");
 
         Collections.sort(cards, (c1,c2)-> c1.compareTo(c2));
+        //Collections.sort(cards, (o1,o2)-> o1.compareTo(o2));
 
         System.out.println(cards);
         for (String card: cards){

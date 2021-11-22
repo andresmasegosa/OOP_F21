@@ -1,5 +1,6 @@
 package session9.b_customexceptions;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DemoWithDraw {
@@ -13,14 +14,15 @@ public class DemoWithDraw {
 
             System.out.println("Enter an amount to withdraw:");
 
-            int amount = scanner.nextInt();
-
             try {
+                int amount = scanner.nextInt();
                 account.withdraw(amount);
             } catch (NegativeAmountException e) {
                 System.out.println("Amount cannot be negative!");
             } catch (InsufficientFundsException e) {
                 System.out.println("You are short: " + e.getDeficit());
+            } catch (InputMismatchException e) {
+                System.out.println("Input a number. Your input is: " + scanner.nextLine());
             }
         }
     }

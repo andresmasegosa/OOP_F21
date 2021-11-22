@@ -12,6 +12,7 @@ public class Demo {
         Planet mars = new Planet("Mars");
 
         SolarSystem solarSystem = new SolarSystem(venus,earth,mars);
+
         boolean flag = false;
         SolarSystem solarSystem2 = solarSystem.stream()
                 .filter(planet -> {
@@ -24,6 +25,11 @@ public class Demo {
                 .collect(SolarSystemCollector.collect());
 
         for (Planet planet: solarSystem2){
+            System.out.println(planet);
+        }
+
+        SolarSystem solarSystem3 = solarSystem.stream().filter(planet -> planet.getName().contains("s")).collect(SolarSystemCollector.collect());
+        for (Planet planet: solarSystem3){
             System.out.println(planet);
         }
 

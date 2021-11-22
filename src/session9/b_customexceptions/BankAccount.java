@@ -21,4 +21,16 @@ public class BankAccount {
         }
         balance = balance - amount;
     }
+
+    public void deposit(int amount) {
+        if (amount < 0) {
+            throw new NegativeDepositException();
+        }
+
+        balance = balance + amount;
+
+        if (amount > 100000) {
+            throw new WarningLargeDeposit();
+        }
+    }
 }

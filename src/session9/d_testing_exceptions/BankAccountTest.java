@@ -1,9 +1,7 @@
 package session9.d_testing_exceptions;
 
 import org.junit.jupiter.api.Test;
-import session9.b_customexceptions.BankAccount;
-import session9.b_customexceptions.InsufficientFundsException;
-import session9.b_customexceptions.NegativeAmountException;
+import session9.b_customexceptions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,6 +31,27 @@ class BankAccountTest {
         BankAccount bankAccount = new BankAccount(100);
         InsufficientFundsException fundsException = assertThrows(InsufficientFundsException.class,()->{bankAccount.withdraw(1000);});
         assertEquals(900,fundsException.getDeficit());
+    }
+
+    @Test
+    void deposit() {
+        BankAccount bankAccount = new BankAccount(200);
+        bankAccount.deposit(42);
+        assertEquals(242, bankAccount.getBalance());
+    }
+
+    @Test
+    void depositThrowsNegativeQuantityWithException() {
+        BankAccount bankAccount = new BankAccount(200);
+        assertThrows(NegativeDepositException.class, ()->{bankAccount.deposit(-100);});
+        assertEquals(200, bankAccount.getBalance());
+    }
+
+    @Test
+    void depositThrowsTooLargeWithException() {
+        BankAccount bankAccount = new BankAccount(10000001);
+        assertThrows(WarningLargeDeposit.class, ()->{bankAccount.deposit(100001);});
+        assertEquals(10100002, bankAccount.getBalance());
     }
 
     /**

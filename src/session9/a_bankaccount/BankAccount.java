@@ -13,7 +13,7 @@ public class BankAccount {
 
     public void withdraw(int amount) {
         if (amount <= 0) {
-            String msg = "Amount must be positive.";
+            String msg = "Amount must be positive or a number.";
             throw new IllegalArgumentException(msg);
         }
         if (amount >= balance) {
@@ -24,6 +24,11 @@ public class BankAccount {
     }
 
     public void deposit(int amount) {
+        if (amount <= 0) {
+            String msg = "Deposit must be positive or a number.";
+            throw new IllegalArgumentException(msg);
+        }
+
         balance = balance + amount;
     }
 }
