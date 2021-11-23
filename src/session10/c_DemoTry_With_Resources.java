@@ -21,6 +21,8 @@ public class c_DemoTry_With_Resources {
 
         } catch (IOException e) {
             System.out.println("Unable to read the file.");
+        } catch(Exception e){
+            System.out.println("The File could not be closed!! ");
         }
 
         //Exercise: Try to comment out the catch part of the code. I mean, imagine that you forget to handle the IOException.

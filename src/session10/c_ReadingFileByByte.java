@@ -31,5 +31,23 @@ public class c_ReadingFileByByte {
         // "int read(byte[] bytes)" of InputStream and measure the time.
 
 
+        byte[] array = new byte[10000];
+
+        start = System.currentTimeMillis();
+
+        try (InputStream is = Files.newInputStream(path)) {
+            int length = 0;
+            int b;
+            while ((b = is.read(array)) != -1) {
+                length+=b;
+            }
+            System.out.println("Read " + length + " bytes.");
+        } catch (IOException e) {
+            System.out.println("Unable to read the file.");
+        }
+
+        finish = System.currentTimeMillis();
+        System.out.println(finish - start + " milliseconds");
+
     }
 }

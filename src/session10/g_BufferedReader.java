@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class g_BufferedReader {
 
@@ -12,7 +14,6 @@ public class g_BufferedReader {
         Path path = Paths.get("./src/session10/names.txt");
 
         try (BufferedReader reader = Files.newBufferedReader(path)) {
-
             String line = null;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
@@ -35,6 +36,16 @@ public class g_BufferedReader {
 
         //Exercise: Read each line and create a Student object (using map function).
         //          Finally, print out all students objects.
+        //          Alternatively, collect all students objects in a list.
+
+
+        try (BufferedReader reader = Files.newBufferedReader(path)) {
+
+            List<Student> list = reader.lines().map(line ->new Student(line)).toList();
+
+        } catch (IOException e) {
+            System.out.println("Unable to read the file.");
+        }
 
 
 
