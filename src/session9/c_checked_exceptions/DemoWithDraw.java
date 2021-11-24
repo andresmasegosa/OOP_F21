@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DemoWithDraw {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NegativeAmountException, InsufficientFundsException {
         Scanner scanner = new Scanner(System.in);
         BankAccount account = new BankAccount(100);
 

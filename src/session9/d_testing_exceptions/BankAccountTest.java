@@ -5,6 +5,8 @@ import session9.b_customexceptions.BankAccount;
 import session9.b_customexceptions.InsufficientFundsException;
 import session9.b_customexceptions.NegativeAmountException;
 
+import org.junit.jupiter.api.function.Executable;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BankAccountTest {
@@ -25,14 +27,25 @@ class BankAccountTest {
     @Test
     void withdrawNegativeWithDrawException() {
         BankAccount bankAccount = new BankAccount(100);
-        assertThrows(NegativeAmountException.class,()->{bankAccount.withdraw(-10);});
+        assertThrows(NegativeAmountException.class,
+                ()-> {bankAccount.withdraw(-10);}
+        );
+
+        assertEquals(100, bankAccount.getBalance());
     }
 
     @Test
     void withdrawInsufficientFundsException() {
         BankAccount bankAccount = new BankAccount(100);
-        InsufficientFundsException fundsException = assertThrows(InsufficientFundsException.class,()->{bankAccount.withdraw(1000);});
+
+        InsufficientFundsException fundsException =
+                assertThrows(InsufficientFundsException.class,
+                        ()->{bankAccount.withdraw(1000);});
+
         assertEquals(900,fundsException.getDeficit());
+
+        assertEquals(100, bankAccount.getBalance());
+
     }
 
     /**
