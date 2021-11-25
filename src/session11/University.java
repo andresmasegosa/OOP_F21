@@ -9,7 +9,7 @@ package session11;
  *  <p>
  *  - {@link #AAU} refers to Aalborg University (@see <a href="http://google.com">http://google.com</a>).
  *  <p>
- *  - {@link #CPH} refers to University of Copenhagen (@see <a href="http://www.ku.dk">http://www.ku.dk</a>).
+ *  - {@link #KU} refers to University of Copenhagen (@see <a href="http://www.ku.dk">http://www.ku.dk</a>).
  *  <p>
  *  - {@link #DTU} refers to Technical University of Denmark (@see <a href="http://www.dtu.dk">http://www.dtu.dk</a>).
  *  <p>
@@ -32,7 +32,7 @@ public enum University {
     /** Aalborg University (@see <a href="http://google.com">http://google.com</a>). */
     AAU,
     /** University of Copenhagen (@see <a href="http://www.ku.dk">http://www.ku.dk</a>). */
-    CPH,
+    KU,
     /** Technical University of Denmark (@see <a href="http://www.dtu.dk">http://www.dtu.dk</a>). */
     DTU,
     /** IT University of Copenhagen  (@see <a href="http://www.itu.dk">http://www.itu.dk</a>). */

@@ -2,12 +2,12 @@ package session11;
 
 /**
  * The {@code Student} class represents a person attending to a university. A {@code Student} object
- * contains information about the name of the student, her/his age, the city where s/he is atteding to
+ * contains information about the name of the student, her/his age, the city where s/he is attending to
  * the university and, finally, the name of the university.
  *
  * <p>
  *  This name of the student is not mutable, but the age, the city and the university are mutable.
- *  The student's university is defined according to the enum {@link session11.University University}.
+ *  The student's university is defined according to the enum {@link University}.
  *  <p>
  *
  *  This is an example of the creation of a {@code Student} object.
@@ -20,30 +20,30 @@ package session11;
  * </pre></blockquote>
  *
  * @author Andres Masegosa
- * @see session11.University
+ * @see University
  * @since 0.1
  */
 public class Student {
 
-    /* Contains the name of the student */
+    /** Contains the name of the student */
     private String name;
 
-    /* Contains the age of the student */
+    /** Contains the age of the student */
     private int age;
 
-    /* Contains the city of the student */
+    /** Contains the city of university the student is attending*/
     private String city;
 
     /**
      * Contains the university of the student.
-     * The value is defined according to the enum {@link session11.University University}.
+     * The value is defined according to the enum {@link University}.
      */
     private University university;
 
     /**
      * Initializes a newly created {@code Student} object with a given name. Information
      * about the age, the city and the university is not provided.
-     * @param name, a A {@code String} object containing the name of the student.
+     * @param name, a {@code String} object containing the name of the student.
      */
     public Student(String name) {
         this.name = name;
@@ -93,10 +93,20 @@ public class Student {
     //Fill the comments
 
 
+    /**
+     * Setter for the university of the student.
+     * @param university, an enum from {@link University} specifying
+     *                    the university of the student.
+     */
     public void setUniversity(University university) {
         this.university = university;
     }
 
+    /**
+     * Getter for the university of the student.
+     * @return an enum from {@link University} specifying
+     *         the university of the student.
+     */
     public University getUniversity() {
         return university;
     }
